@@ -1,0 +1,32 @@
+import controlP5.*;
+//import processing.serial.*;
+//Serial port;
+
+ControlP5 cp5;        //create object
+
+void setup(){         //same as arduino program
+
+  size(300,400);      //window size, (width, height)
+  
+  cp5= new ControlP5(this);
+  
+  cp5.addButton("180 degrees")      //creates buttons
+     .setPosition(100,50)    
+     .setSize(100,50)
+  ;
+  cp5.addButton("75 degrees")      //creates buttons
+     .setPosition(100,150)    
+     .setSize(100,50)
+  ;
+  cp5.addButton("0 degrees")      //creates buttons
+     .setPosition(100,250)    
+     .setSize(100,50)
+  ;
+}
+
+
+void draw(){          //same loop as arduino
+  background(150, 0,150);    //backround color using (r,g,b) 
+  
+  text("Controls", 100,30);  //title and coordinate
+}
