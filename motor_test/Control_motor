@@ -1,0 +1,19 @@
+#include <Servo.h>  	//we need to load a library for the servo
+int servoPin=9;     	//Data pin for the orange connection
+int servoAngle=0;   	//sets pointer to 0 degrees at start
+Servo myServo;      	//creates a virtual object myServo so Arduino can interact with servo
+
+void setup() {  
+Serial.begin(9600);       	//Sets the baud rate for the Serial Window to display data
+myServo.attach(servoPin); 	//Connects the Servo to pin 9 (servoPin) 
+}
+
+void loop() {
+  Serial.println("What Angle for the Servo?"); 	//prints this question
+    while (Serial.available()==0){             	//waits for an input from the keyboard
+  }
+  servoAngle=Serial.parseInt(); 	           //assigns the input from the keyboard to the Angle
+  Serial.print(servoAngle);     		//prints the angle in the Serial Window
+  Serial.println(" degrees.");  		//prints the word degrees in the Serial Window
+  myServo.write(servoAngle);    	      //Makes the servo turn to the angle defined by servoAngle
+}
